@@ -1,0 +1,14 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
+@SuppressWarnings("serial")
+class Queue extends LinkedList<Integer> {}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNextLine()) {
+            System.out.println(scanner.nextLine().matches("[\\[\\]][^\\[^\\]]+"));
+        }
+    }
+}

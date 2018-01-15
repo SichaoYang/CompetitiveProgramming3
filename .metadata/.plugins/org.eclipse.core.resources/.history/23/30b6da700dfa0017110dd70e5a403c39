@@ -1,0 +1,28 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 01062 - Containers
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+/**
+ * LIS.
+ */
+public class UVa01062Containers {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 1000);
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        
+        
+        reader.close();
+        writer.close();
+    }
+}

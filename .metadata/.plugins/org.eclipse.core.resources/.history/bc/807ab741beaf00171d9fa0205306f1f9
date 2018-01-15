@@ -1,0 +1,11 @@
+
+public class Main {
+    public static void print(Number a) {
+        System.out.println(a.intValue());
+    }
+    
+    public static void main(String[] args) {
+        Integer aInteger = 1;
+        print(aInteger);
+    }
+}

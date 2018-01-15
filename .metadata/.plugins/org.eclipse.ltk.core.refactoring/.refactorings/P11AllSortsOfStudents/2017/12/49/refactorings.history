@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;SortingAlgorithmSingleton&apos; to &apos;SortingAlgorithm&apos;&#x0D;&#x0A;- Original project: &apos;P11AllSortsOfStudents&apos;&#x0D;&#x0A;- Original element: &apos;SortingAlgorithmSingleton&apos;&#x0D;&#x0A;- Renamed element: &apos;SortingAlgorithm&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SortingAlgorithmSingleton&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{Main.java[SortingAlgorithmSingleton" matchStrategy="1" name="SortingAlgorithm" qualified="false" references="true" similarDeclarations="false" stamp="1512545917722" textual="false" version="1.0"/>
+</session>

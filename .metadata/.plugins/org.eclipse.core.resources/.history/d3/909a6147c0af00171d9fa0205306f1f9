@@ -1,0 +1,21 @@
+
+interface Printable {
+    String toString();
+}
+
+public class Main {
+    public static <Type extends Printable> Type print(Type a) {
+        Type b = a;
+        System.out.println(a);
+    }
+    
+    public static Integer print(Integer a) {
+        System.out.println(a);
+        return a;
+    }
+    
+    public static void main(String[] args) {
+        // Integer implements Printable
+        print(new Integer(1));
+    }
+}

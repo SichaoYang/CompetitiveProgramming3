@@ -1,0 +1,35 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 01062 - Containers
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+/**
+ * LIS.
+ */
+public class UVa01062Containers {
+    static int lis(char[] array) {
+        
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 1000);
+        PrintWriter writer = new PrintWriter(System.out);
+        int index = 1;
+        String input;
+        while (!(input = reader.readLine()).equals("end")) {
+            System.out.println("Case " + index++ + ": " + lis(input.toCharArray()));
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

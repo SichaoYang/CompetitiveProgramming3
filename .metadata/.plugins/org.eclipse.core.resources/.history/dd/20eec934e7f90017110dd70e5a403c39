@@ -1,0 +1,40 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 11926 - Multitasking
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Bit_Manipulation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.BitSet;
+
+public class UVa11926Multitasking {
+    static BitSet calendar = new BitSet(1000000);
+    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static PrintWriter writer = new PrintWriter(System.out);
+    
+    static boolean one_time_task(int n) {
+        
+        return true;
+    }
+    
+    public static void main(String[] args) throws IOException {
+        
+        
+        while (true) {
+            String[] input = reader.readLine().split(" ");
+            int n = Integer.parseInt(input[0]), m = Integer.parseInt(input[1]);
+            if (n == 0 && m == 0) break;
+            calendar.clear();
+            
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

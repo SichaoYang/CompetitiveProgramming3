@@ -1,0 +1,42 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10172 - The Lonesome Cargo Distributor
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Queue_and_Deque;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.LinkedList;
+
+class Queue {
+    LinkedList<Integer> list = new LinkedList<>();
+}
+
+/**
+ * Simulation with both stack and queue.
+ */
+public class UVa10172TheLonesomeCargoDistributor {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 1000);
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        int SET = Integer.parseInt(reader.readLine());
+        while (SET-- > 0) {
+            String[] NSQ = reader.readLine().split(" ");
+            int N = Integer.parseInt(NSQ[0]), S = Integer.parseInt(NSQ[1]), Q = Integer.parseInt(NSQ[2]);
+            Queue[] queues = new Queue[100];
+            for (int i = 0; i < N; i++) {
+                queues[i] = new Queue();
+                String 
+            }
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

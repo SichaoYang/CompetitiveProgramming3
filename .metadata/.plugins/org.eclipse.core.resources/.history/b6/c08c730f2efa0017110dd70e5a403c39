@@ -1,0 +1,14 @@
+import java.util.LinkedList;
+
+@SuppressWarnings("serial")
+class Queue extends LinkedList<Integer> {}
+
+public class Main {
+    public static void main(String[] args) {
+        Queue[] queues = new Queue[2];
+        queues[0] = new Queue();
+        queues[0].add(1);
+        queues[1] = new Queue();
+        if(queues[1].isEmpty()) System.out.println(queues[0].poll());
+    }
+}

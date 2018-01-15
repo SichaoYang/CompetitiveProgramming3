@@ -1,0 +1,11 @@
+
+interface Printable {
+    String toString();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Double aDouble = new Double(1.5);
+        System.out.println(typeof(aDouble));
+    }
+}

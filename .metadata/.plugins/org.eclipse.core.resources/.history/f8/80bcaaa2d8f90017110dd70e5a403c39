@@ -1,0 +1,29 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10264 - The Most Potent Corner
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Bit_Manipulation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class UVa10264TheMostPotentCorner {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        String input;
+        while ((input = reader.readLine()) != null) {
+            int N = 1 << Integer.parseInt(input);
+            for ()
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

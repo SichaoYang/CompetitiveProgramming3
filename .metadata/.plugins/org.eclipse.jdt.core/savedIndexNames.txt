@@ -1,0 +1,2 @@
+INDEX VERSION 1.130+W:\CompetitiveProgramming3\.metadata\.plugins\org.eclipse.jdt.core
+1828026965.index

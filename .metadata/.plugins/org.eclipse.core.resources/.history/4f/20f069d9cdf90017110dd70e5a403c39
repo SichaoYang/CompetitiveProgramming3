@@ -1,0 +1,54 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10258 - Contest Scoreboard
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Collections;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+class Contestant {
+    boolean[] AC = new boolean[9];
+    int[] time = new int[9];
+}
+
+public class UVa10258ContestScoreboard {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        int n = Integer.parseInt(reader.readLine());
+        reader.readLine();
+        
+        while (n-- > 0) {
+            Contestant[] contestants = new Contestant[100];
+            while (reader.ready()) {
+                String input = reader.readLine();
+                if (input.isEmpty()) break;
+                StringTokenizer tokenizer = new StringTokenizer(input);
+                int contestant = Integer.parseInt(tokenizer.nextToken());
+                int problem = Integer.parseInt(tokenizer.nextToken());
+                int time = Integer.parseInt(tokenizer.nextToken());
+                switch (tokenizer.nextToken()) {
+                    case "I":
+                        if (!contestants[contestant].AC[problem])
+                            contestants[contestant].time[problem] += time;
+                        break;
+                    case "C":
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

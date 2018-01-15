@@ -1,0 +1,45 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 00514 - Rails
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Stack;
+
+/**
+ * Stack simulation.
+ */
+public class UVa00514Rails {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 100000);
+        PrintWriter writer = new PrintWriter(System.out);
+        int n;
+        while ((n = Integer.parseInt(reader.readLine())) != 0) {
+            String input;
+            Stack<Integer> stack = new Stack<>();
+            while (!(input = reader.readLine()).equals("0")) {
+                int[] reorganization = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
+                int j = 1;
+                for (int i = 0; i < n; i++) {
+                    stack.add(reorganization[i]);
+                    while (!stack.isEmpty() && stack.peek() == j) {
+                        stack.pop();
+                        j++;
+                    }
+                }
+                System.out.println(j);
+            }
+        }
+
+        reader.close();
+        writer.close();
+    }
+}

@@ -1,0 +1,37 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10038 - Jolly Jumpers
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package _1D_Array_Manipulation;
+
+import java.util.BitSet;
+import java.util.Scanner;
+
+/**
+ * Check if the differential sequence of an n-element sequence is 1..(n-1).
+ */
+public class UVa10038JollyJumpers {
+    static Scanner scanner;
+    
+    public static boolean isJolly() {
+        int n = scanner.nextInt(), iOld = scanner.nextInt(), iNew;
+        BitSet bitSet = new BitSet(n - 1);
+        for (int i = 1; i < n; i++) {
+            iNew = scanner.nextInt();
+            int iDif = Math.abs(iNew - iOld) - 1;
+            if (iDif < 0 || iDif >= n || bitSet.get(iDif)) return false;
+            bitSet.set(iDif);
+            iOld = iNew;
+        }
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        while (scanner.hasNextInt()) System.out.println(isJolly() ? "Jolly" : "Not jolly");
+        scanner.close();
+    }
+}

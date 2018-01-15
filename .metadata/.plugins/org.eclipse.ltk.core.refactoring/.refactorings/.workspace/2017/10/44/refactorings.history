@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;P7_GENERATING_PHILOSOPHY&apos; to &apos;P7GeneratingPhilosophy&apos;&#x0D;&#x0A;- Original element: &apos;P7_GENERATING_PHILOSOPHY&apos;&#x0D;&#x0A;- Renamed element: &apos;P7_GENERATING_PHILOSOPHY&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;P7_GENERATING_PHILOSOPHY&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=P7_GENERATING_PHILOSOPHY" name="P7GeneratingPhilosophy" references="true" stamp="1509473427666" version="1.0"/>
+</session>

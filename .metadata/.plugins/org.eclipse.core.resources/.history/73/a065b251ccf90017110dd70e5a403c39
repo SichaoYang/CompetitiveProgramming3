@@ -1,0 +1,19 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10258 - Contest Scoreboard
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Collections;
+
+class Contestant {
+    boolean[] AC = new boolean[9];
+    int[] time = new int[9];
+}
+
+public class UVa10258ContestScoreboard {
+    public static void main(String[] args) {
+        
+    }
+}

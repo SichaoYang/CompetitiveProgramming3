@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SwimSim.jar&apos; to &apos;P2SwimSim&apos;&#x0D;&#x0A;- Original project: &apos;P1SwimSim&apos;&#x0D;&#x0A;- Destination element: &apos;P2SwimSim&apos;&#x0D;&#x0A;- Original element: &apos;SwimSim.jar&apos;" description="Copy file" destination="=P2SwimSim" element1="SwimSim.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1505769343690" units="0" version="1.0"/>
+</session>

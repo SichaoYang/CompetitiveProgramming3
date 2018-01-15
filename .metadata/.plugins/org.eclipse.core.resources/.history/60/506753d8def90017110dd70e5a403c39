@@ -1,0 +1,44 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10264 - The Most Potent Corner
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Bit_Manipulation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class UVa10264TheMostPotentCorner {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        String input;
+        while ((input = reader.readLine()) != null) {
+            int N = Integer.parseInt(input), n = 1 << N;
+            short[] weights = new short[n];
+            short potency, m1 = 0, m2 = 0;
+            for (int i = 0; i < n; i++)
+                weights[i] = Short.parseShort(reader.readLine());
+            for (int i = 0; i < n; i++) {
+                potency = 0;
+                for (int sh = 0; sh < N; sh++) {
+                    System.out.println(weights[i ^ (1 << sh)]);
+                    potency += weights[i ^ (1 << sh)];
+                }
+                if (potency > m1) {
+                    m2 = m1;
+                    m1 = potency;
+                } else if (potency > m2) m2 = potency;
+            }
+            System.out.println(m1 + "," + m2);
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

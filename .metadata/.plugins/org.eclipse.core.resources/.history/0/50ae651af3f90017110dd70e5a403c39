@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10920 - Spiral Tap
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package _2D_Array_Manipulation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+/**
+ * Spiral walk simulation:
+ *      13 12 11 10 ↑
+ *      14  3  2  9 ↑
+ *      15  4  1  8 ↑
+ *      16  5  6  7 ↑
+ *      17 18 19 -→ ↑
+ */
+public class UVa10920SpiralTap {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out);
+        while (true) {
+            String[] input = reader.readLine().split(" ");
+            long SZ = Long.parseLong(input[0]), P = Long.parseLong(input[1]); // long!
+            if (P == 0) break;
+            long dx = 1, dy = 0, x = SZ / 2 + 1, y = SZ / 2 + 1, p = 1;
+            boolean sim = true;
+            for (int i = 1; sim; i++)
+                for (int j = 0; sim && j < 2; j++) {
+                    if (p + i < P) {
+                        x += i * dx;
+                        y += i * dy;
+                        p += i;
+                        long temp = dx; dx = dy; dy = -temp; // -pi / 2: [0 1; -1 0][x; y] = [y; -x]
+                    } else {
+                        writer.println("Line = " + (x + (P - p) * dx)  + 
+                                   ", column = " + (y + (P - p) * dy) + ".");
+                        sim = false;
+                    }
+                }
+        }
+        reader.close();
+        writer.close();
+    }
+}

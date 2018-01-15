@@ -1,0 +1,16 @@
+
+interface Printable {
+    String toString();
+}
+
+public class Main {
+    public static <Type extends Printable> Type print(Type a) {
+        System.out.println(a);
+        return a;
+    }
+    
+    public static void main(String[] args) {
+        Integer aInteger = 1;
+        print(aInteger);
+    }
+}

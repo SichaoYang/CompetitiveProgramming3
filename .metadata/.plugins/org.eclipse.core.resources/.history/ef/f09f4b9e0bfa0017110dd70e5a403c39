@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 00732 - Anagram by Stack
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.BitSet;
+import java.util.Stack;
+
+/**
+ * Simulation using stack. Branch and Bound.
+ */
+public class UVa00732AnagramByStack {
+    static String src, dst;
+    
+    static void search(BitSet op, Stack<Character> stack, int s, int d) {
+        if (s < src.length()) {
+            stack.push(src.charAt(s));
+            op.set(s + d);
+            search(op, stack, s + 1, d);
+            op.clear(s + d);
+            stack.pop();
+        }
+        if (d < dst.length()) {
+            if (!stack.isEmpty() && stack.peek() == dst.charAt(d)) {
+                Character temp = stack.pop();
+                search(op, stack, s, d + 1);
+                stack.add(temp);
+            }
+        } else {
+            for (int i = 0; i < s + d; i++)
+                System.out.print((i > 0 ? " " : "") + (op.get(i) ? "i" : "o")); // No tailing space!
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 100000);
+        PrintWriter writer = new PrintWriter(System.out);
+        while ((src = reader.readLine()) != null && (dst = reader.readLine()) != null) {
+            System.out.println("[");
+            if (src.length() == dst.length()) search(new BitSet(src.length()), new Stack<>(), 0, 0);
+            System.out.println("]");
+        }
+        reader.close();
+        writer.close();
+    }
+}

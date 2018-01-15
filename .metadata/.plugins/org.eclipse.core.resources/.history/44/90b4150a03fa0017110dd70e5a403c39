@@ -1,0 +1,26 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 00732 - Anagram by Stack
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Stack;
+
+public class UVa00732AnagramByStack {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 100000);
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        
+        
+        reader.close();
+        writer.close();
+    }
+}

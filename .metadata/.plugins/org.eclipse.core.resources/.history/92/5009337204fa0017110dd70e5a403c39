@@ -1,0 +1,34 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 00732 - Anagram by Stack
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.BitSet;
+import java.util.Stack;
+
+public class UVa00732AnagramByStack {
+    static String src, dst;
+    
+    static BitSet search(BitSet op, Stack<Character> stack, int s, int d) {
+        
+        return op;
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 100000);
+        PrintWriter writer = new PrintWriter(System.out);
+        while ((src = reader.readLine()) != null && (dst = reader.readLine()) != null) {
+            
+        }
+        reader.close();
+        writer.close();
+    }
+}

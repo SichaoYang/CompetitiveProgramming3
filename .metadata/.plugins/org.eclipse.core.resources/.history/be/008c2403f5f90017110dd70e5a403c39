@@ -1,0 +1,33 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 11988 - Broken Keyboard
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.LinkedList;
+
+/**
+ * Pure linked list.
+ */
+public class UVa11988BrokenKeyboard {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 100000);
+        PrintWriter writer = new PrintWriter(System.out);
+        String input;
+        while ((input = reader.readLine()) != null) {
+            LinkedList<String> list = new LinkedList<>();
+            int p = 0;
+            boolean append = true;
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

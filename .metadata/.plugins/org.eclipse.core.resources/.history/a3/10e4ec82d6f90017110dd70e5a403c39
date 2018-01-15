@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: 
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Bit_Manipulation;
+
+/**
+ * @author Yang, Sichao
+ *
+ */
+public class UVa10264TheMostPotentCorner {
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}

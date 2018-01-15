@@ -1,0 +1,31 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Title:           P9VendingMachine
+// Files:           Main.java
+// Course:          CS 300 FALL 2017
+//
+// Author:          Yang, Sichao
+// Email:           syang456@wisc.edu
+// Lecturer's Name: Gary Dahl
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @author Yang, Sichao
+ *
+ */
+public class Main {
+    public static void main(String[] args) {
+        VendingMachine machine = new VendingMachine(3);
+        machine.addItem(new Item(3, "3"));
+        machine.addItem(new Item(1, "1"));
+        machine.addItem(new Item(2, "2"));
+        System.out.println(machine);
+        System.out.println(machine.dispenseNextItem().getDescription());
+        System.out.println(machine);
+        System.out.println(machine.dispenseItemAtIndex(1).getDescription());
+        System.out.println(machine);
+        System.out.println(machine.dispenseNextItem().getDescription());
+        System.out.println(machine);
+    }
+}

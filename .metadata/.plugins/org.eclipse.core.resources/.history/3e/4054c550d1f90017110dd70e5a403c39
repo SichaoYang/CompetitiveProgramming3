@@ -1,0 +1,83 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10258 - Contest Scoreboard
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Collections;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.StringTokenizer;
+
+class Contestant {
+    int number;
+    boolean submitted = false;
+    BitSet AC = new BitSet(9);
+    int[] penalty = new int[9];
+    
+    public Contestant(int number) {
+        this.number = number;
+    }
+    
+    int pen() {
+        int total = 0;
+        for (int i = 0; i < 9; i++)
+            if (AC.get(i)) total += penalty[i];
+        return total;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("%d %d %d", number, AC.cardinality(), pen());
+    }
+}
+
+public class UVa10258ContestScoreboard {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        int n = Integer.parseInt(reader.readLine());
+        reader.readLine();
+        Contestant[] contestants = new Contestant[101];
+        for (int i = 1; i <= 100; i++) contestants[i] = new Contestant(i);
+        while (n-- > 0) {
+            for (int i = 0; i < 100; i++) {
+                contestants[i].submitted = false;
+                contestants[i].AC.clear();
+                contestants[i].penalty = new int[9];
+            }
+            while (reader.ready()) {
+                String input = reader.readLine();
+                if (input.isEmpty()) break;
+                StringTokenizer tokenizer = new StringTokenizer(input);
+                int contestant = Integer.parseInt(tokenizer.nextToken());
+                int problem = Integer.parseInt(tokenizer.nextToken());
+                int time = Integer.parseInt(tokenizer.nextToken());
+                String L = tokenizer.nextToken();
+                contestants[contestant].submitted = true;
+                if (!contestants[contestant].AC.get(problem) && "IC".contains(L)) {
+                    contestants[contestant].penalty[problem] += time;
+                    if (L.equals("C")) contestants[contestant].AC.set(problem);
+                }
+            }
+            Arrays.sort(contestants, (c1, c2) ->
+                    Integer.signum(Integer.compare(c1.AC.cardinality(), c2.AC.cardinality())) * 4 + 
+                    Integer.signum(Integer.compare(c1.pen(), c2.pen())) * 2 +
+                    Integer.signum(Integer.compare(c1.number, c2.number))
+            );
+            for (Contestant contestant : contestants)
+                if (contestant.submitted) System.out.println(contestant);
+            if (n > 0) System.out.println();
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

@@ -1,0 +1,15 @@
+/**
+     * Initializes a fish from a reference to the PApplet at intended starting x and y position.
+     * <p>
+     * Note: Utility.randomInt() is used instead of Main.generateRandomPositions()
+     * 
+     * @param processing {@code PApplet} that the fish should be drawing itself to.
+     * @param x the starting pixel column number of the fish.
+     * @param y the starting pixel row number of the fish.
+     */
+    public Fish(PApplet processing, int x, int y) {
+        this.processing = processing;
+        this.x = x;
+        this.y = y;
+        image = processing.loadImage("images" + java.io.File.separator + "FISH.png");
+    }

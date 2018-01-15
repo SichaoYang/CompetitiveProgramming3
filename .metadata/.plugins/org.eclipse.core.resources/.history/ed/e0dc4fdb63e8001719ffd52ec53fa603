@@ -1,0 +1,33 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: Competitive Programming 3, pp. 35-39
+// Title:  Linear DS with Built-in Libraries
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+// Date:   Dec 23, 2017
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package ch2.sec2;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        // Static Array
+        int[] array = new int[] {2, 3, 1};
+        Arrays.sort(array); // sorting
+        System.out.println(Arrays.toString(array));
+        for (int i = 0; i < 5; i++)
+            System.out.println(Arrays.binarySearch(array, 0, 3, i));
+        
+        // Dynamically-Resizeable Array
+        ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(2, 3, 1));
+        Collections.sort(arrayList); // sorting
+        Collections.reverse(arrayList);
+        System.out.println(arrayList);
+        for (int i = 0; i < 5; i++)
+            System.out.println(Collections.binarySearch(arrayList, (p, q) -> p - q));
+    }
+}

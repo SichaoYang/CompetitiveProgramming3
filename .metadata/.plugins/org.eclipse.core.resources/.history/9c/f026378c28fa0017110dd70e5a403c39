@@ -1,0 +1,61 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10901 - Ferry Loading III
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Queue_and_Deque;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.LinkedList;
+
+class Car {
+    static int i = 0;
+    int index;
+    int time;
+    
+    public Car(int t) {
+        index = i++;
+        time = t;
+    }
+}
+
+public class UVa10901FerryLoadingIII {
+    static final int MAX = 10000;
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 1000);
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        int c = Integer.parseInt(reader.readLine());
+        while (c-- > 0) {
+            String[] ntm = reader.readLine().split(" ");
+            int T = 0, n = Integer.parseInt(ntm[0]), t = Integer.parseInt(ntm[1]), m = Integer.parseInt(ntm[2]);
+            int[] time = new int[m];
+            LinkedList<Car> left = new LinkedList<>(), right = new LinkedList<>();
+            while (m-- > 0) {
+                String[] input = reader.readLine().split(" ");
+                Car car = new Car(Integer.parseInt(input[0]));
+                if (input[1].equals("left")) left.add(car);
+                else right.add(car);
+            }
+            boolean onLeft = true;
+            while (!left.isEmpty() || !right.isEmpty()) {
+                T = Math.max(T, Math.min(left.isEmpty() ? MAX : left.peek().time, right.isEmpty() ? MAX : right.peek().time));
+                LinkedList<Car> side = onLeft ? left : right;
+                for (int i = 0; i < n && !side.isEmpty() && side.peek().time <= T; i++)
+                    time[side.poll().index] = T + t;
+                T += t;
+                onLeft = !onLeft;
+            }
+            writer.println();
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

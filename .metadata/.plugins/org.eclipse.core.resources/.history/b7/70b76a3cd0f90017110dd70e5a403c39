@@ -1,0 +1,68 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10258 - Contest Scoreboard
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Collections;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.Comparator;
+import java.util.StringTokenizer;
+
+class Contestant {
+    int number;
+    BitSet AC = new BitSet(9);
+    int[] penalty = new int[9];
+    
+    int pen() {
+        int total = 0;
+        for (int i = 0; i < 9; i++)
+            if (AC.get(i)) total += penalty[i];
+        return total;
+    }
+}
+
+public class UVa10258ContestScoreboard {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        int n = Integer.parseInt(reader.readLine());
+        reader.readLine();
+        Contestant[] contestants = new Contestant[100];
+        for (int i = 0; i < 100; i++) contestants[i].number = i + 1;
+        while (n-- > 0) {
+            for (int i = 0; i < 100; i++) {
+                contestants[i].AC.clear();
+                contestants[i].penalty = new int[9];
+            }
+            while (reader.ready()) {
+                String input = reader.readLine();
+                if (input.isEmpty()) break;
+                StringTokenizer tokenizer = new StringTokenizer(input);
+                int contestant = Integer.parseInt(tokenizer.nextToken());
+                int problem = Integer.parseInt(tokenizer.nextToken());
+                int time = Integer.parseInt(tokenizer.nextToken());
+                String L = tokenizer.nextToken();
+                if (!contestants[contestant].AC.get(problem) && "IC".contains(L)) {
+                    contestants[contestant].penalty[problem] += time;
+                    if (L.equals("C")) contestants[contestant].AC.set(problem);
+                }
+            }
+            Arrays.sort(contestants, (c1, c2) -> Integer.signum(Integer.compare(c1.AC.cardinality(), c2.AC.cardinality())) * 4 + 
+                           Integer.signum(Integer.compare(c1.pen(), c2.pen())) * 2 +
+                           Integer.signum(Integer.compare(c1.number, c2.number))
+            );
+        }
+        
+        reader.close();
+        writer.close();
+    }
+}

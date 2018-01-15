@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Source: UVa 10901 - Ferry Loading III
+// Author: Yang, Sichao
+// Email:  sichao@cs.wisc.edu
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+package Java_Queue_and_Deque;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.LinkedList;
+
+public class UVa10901FerryLoadingIII {
+    static final int MAX = 10000;
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 1000);
+        PrintWriter writer = new PrintWriter(System.out);
+        
+        int c = Integer.parseInt(reader.readLine());
+        while (c-- > 0) {
+            String[] input = reader.readLine().split(" ");
+            int T = 0, n = Integer.parseInt(input[0]), t = Integer.parseInt(input[1]), m = Integer.parseInt(input[2]);
+            LinkedList<Integer> left = new LinkedList<>(), right = new LinkedList<>();
+            while (m-- > 0) {
+                String[] car = reader.readLine().split(" ");
+                if (car[1].equals("left")) left.add(Integer.parseInt(car[0]));
+                else right.add(Integer.parseInt(car[0]));
+            }
+            boolean onLeft = true;
+            while (!left.isEmpty() || !right.isEmpty()) {
+                LinkedList<Integer> side = onLeft ? left : right;
+                T = Math.max(T, Math.min(left.isEmpty() ? 10000 : left.peek(), right.isEmpty() ? 10000 : right.peek()));
+                while ()
+            }
+        }
+        
+        
+        
+        reader.close();
+        writer.close();
+    }
+}
