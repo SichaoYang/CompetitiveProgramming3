@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**
- * Mapped linked list.
+ * Linked list in direct addressing tables.
  */
 public class UVa12356ArmyBuddies {
     public static void main(String[] args) throws IOException {

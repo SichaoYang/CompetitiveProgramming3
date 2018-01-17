@@ -8436,3 +8436,6 @@ Java Model Exception: Java Model Status [t [in Contestant [in [Working copy] UVa
 	at org.eclipse.jdt.internal.ui.infoviews.AbstractInfoView$2.run(AbstractInfoView.java:758)
 !SUBENTRY 1 org.eclipse.jdt.core 4 969 2018-01-15 16:44:41.701
 !MESSAGE t [in Contestant [in [Working copy] UVa10258ContestScoreboard.java [in Java_Collections [in src [in Linear DS with Built-in Libraries]]]]] does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-01-16 04:22:45.515
+!MESSAGE Cannot run program "git" (in directory "\usr\bin"): CreateProcess error=2, The system cannot find the file specified

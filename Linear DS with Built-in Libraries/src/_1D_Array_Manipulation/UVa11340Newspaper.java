@@ -15,7 +15,7 @@ import java.io.*;
 import java.util.HashMap;
 
 /**
- * Mapping counting.
+ * Counting with a direct addressing table.
  */
 public class UVa11340Newspaper {
     public static void main(String[] args) throws IOException {

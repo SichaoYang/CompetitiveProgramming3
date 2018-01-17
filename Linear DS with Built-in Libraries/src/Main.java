@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Source: Linear DS with Built-in Libraries, Data Structures and Libraries,
+// Source: 2.2. Linear DS with Built-in Libraries, 2. Data Structures and Libraries,
 //         Competitive Programming 3: The New Lower Bound of Programming Contests, pp. 35-39
 // Author: Yang, Sichao
 // Email:  sichao@cs.wisc.edu
