@@ -12,6 +12,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Main {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         // Balanced Binary Search Tree: TreeMap (key -> value) / TreeSet (key)
         TreeMap<Integer, Integer> map = new TreeMap<>();

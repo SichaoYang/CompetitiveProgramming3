@@ -8,8 +8,10 @@
 package Java_TreeMap;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Map;
 import java.util.TreeMap;
@@ -18,10 +20,10 @@ import java.util.TreeMap;
  * Counting by mapping. Maybe a trie tree is needed for a larger input size.
  */
 public class UVa10226HardwoodSpecies {
+    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+    
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter writer = new PrintWriter(System.out);
-        
         int n = Integer.parseInt(reader.readLine());
         reader.readLine();
         while (n-- > 0) {

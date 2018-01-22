@@ -8,8 +8,10 @@
 package Java_TreeMap;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,10 +21,10 @@ import java.util.TreeMap;
  * Counting by mapping.
  */
 public class UVa11286Conformity {
+    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+    
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter writer = new PrintWriter(System.out);
-        
         int n;
         while ((n = Integer.parseInt(reader.readLine())) != 0) {
             TreeMap<String, Integer> map = new TreeMap<>(); // Arrays cannot be keys.

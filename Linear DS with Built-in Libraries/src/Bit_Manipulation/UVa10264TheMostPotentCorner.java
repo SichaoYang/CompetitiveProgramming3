@@ -8,22 +8,39 @@
 package Bit_Manipulation;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 /**
  * Bit toggle. Can be combined with BFS. 
  */
 public class UVa10264TheMostPotentCorner {
+    private static class io {
+        static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        static StringTokenizer tokenizer;
+        public static boolean nextLine() throws IOException {
+            String input = reader.readLine();
+            if (input == null) return false;
+            tokenizer = new StringTokenizer(input);
+            return true;
+        }
+        public static int nextInt() { return Integer.parseInt(tokenizer.nextToken()); }
+        public static int nextLineInt() throws IOException { return Integer.parseInt(reader.readLine()); }
+        public static void close() throws IOException { reader.close(); writer.close(); }
+    }
+    
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String input;
-        while ((input = reader.readLine()) != null) {
-            int N = Integer.parseInt(input), n = 1 << N;
-            short[] weights = new short[n], potencies = new short[n];
+        while (io.nextLine()) {
+            int N = io.nextInt(), n = 1 << N;
+            int[] weights = new int[n], potencies = new int[n];
             int m = 0;
             for (int i = 0; i < n; i++)
-                weights[i] = Short.parseShort(reader.readLine());
+                weights[i] = io.nextLineInt();
             for (int i = 0; i < n; i++)
                 for (int sh = 0; sh < N; sh++)
                     potencies[i] += weights[i ^ (1 << sh)];
@@ -32,8 +49,8 @@ public class UVa10264TheMostPotentCorner {
                     int sum = potencies[i] + potencies[i ^ (1 << sh)];
                     if (sum > m) m = sum;
                 }
-            System.out.println(m);
+            io.writer.println(m);
         }
-        reader.close();
+        io.close();
     }
 }

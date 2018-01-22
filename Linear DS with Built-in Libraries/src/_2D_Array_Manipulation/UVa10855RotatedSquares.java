@@ -8,29 +8,44 @@
 package _2D_Array_Manipulation;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 /**
  * Matrix rotation.
  */
 public class UVa10855RotatedSquares {
+    private static class io {
+        static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        static StringTokenizer tokenizer;
+        public static boolean nextLine() throws IOException {
+            String input = reader.readLine();
+            if (input == null) return false;
+            tokenizer = new StringTokenizer(input);
+            return true;
+        }
+        public static int nextInt() { return Integer.parseInt(tokenizer.nextToken()); }
+        public static void close() throws IOException { reader.close(); writer.close(); }
+    }
+    
     public static void main(String[] args) throws IOException {
-        BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter writer = new PrintWriter(System.out);
         while (true) {
-            String[] input = reader.readLine().split(" ");
-            int N = Integer.parseInt(input[0]), n = Integer.parseInt(input[1]);
+            io.nextLine();
+            int N = io.nextInt(), n = io.nextInt();
             if (N == 0) break;
             char[][] big = new char[N][N];
             char[][] small = new char[n][n];
             for (int i = 0; i < N; i++)
-                big[i] = reader.readLine().toCharArray();
+                big[i] = io.reader.readLine().toCharArray();
             for (int i = 0; i < n; i++)
-                small[i] = reader.readLine().toCharArray();
+                small[i] = io.reader.readLine().toCharArray();
             int[] times = new int[4];
             for (int t = 0; t < 4; t++)
                 for (int R = 0; R <= N - n; R++)
@@ -44,9 +59,8 @@ public class UVa10855RotatedSquares {
                             }
                         if (same) times[t]++;
                     }
-            writer.println(Arrays.stream(times).mapToObj(Integer::toString).collect(Collectors.joining(" ")));
+            io.writer.println(Arrays.stream(times).mapToObj(Integer::toString).collect(Collectors.joining(" ")));
         }
-        reader.close();
-        writer.close();
+        io.close();
     }
 }

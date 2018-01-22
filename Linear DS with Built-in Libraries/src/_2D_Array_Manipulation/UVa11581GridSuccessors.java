@@ -8,14 +8,25 @@
 package _2D_Array_Manipulation;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.math.BigInteger;
 
 /**
  * Cellular automaton simulation.
  */
-public class UVa11581GridSuccessors {    
+public class UVa11581GridSuccessors {
+    private static class io {
+        static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        public static int nextLineInt() throws IOException { return Integer.parseInt(reader.readLine()); }
+        public static int nextLineInt(int base) throws IOException { return new BigInteger(reader.readLine(), base).intValue(); }
+        public static void close() throws IOException { reader.close(); writer.close(); }
+    }
+    
     static int f(int g) {
         int r = 0;
         for (int i = 0; i < 9; i++) {
@@ -28,20 +39,19 @@ public class UVa11581GridSuccessors {
     }
     
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(reader.readLine());
+        int n = io.nextLineInt();
         while (n-- > 0) {
-            reader.readLine();
-            int g = (new BigInteger(reader.readLine(), 2).intValue() << 6) + // 876   bitmask
-                    (new BigInteger(reader.readLine(), 2).intValue() << 3) + // 543
-                    (new BigInteger(reader.readLine(), 2).intValue());       // 210
+            io.reader.readLine();
+            int g = (io.nextLineInt(2) << 6) + // 876   bitmask
+                    (io.nextLineInt(2) << 3) + // 543
+                    (io.nextLineInt(2));       // 210
             int k = -1;
             while (g != 0) {
                 g = f(g);
                 k++;
             }
-            System.out.println(k);
+            io.writer.println(k);
         }
-        reader.close();
+        io.close();
     }
 }

@@ -8,8 +8,10 @@
 package Java_LinkedList;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
@@ -19,9 +21,10 @@ import java.util.regex.Pattern;
  * Pure linked list.
  */
 public class UVa11988BrokenKeyboard {
+    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 100000);
+    static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+    
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 100000);
-        PrintWriter writer = new PrintWriter(System.out);
         String input;
         while ((input = reader.readLine()) != null) {
             LinkedList<String> result = new LinkedList<>(); // String concatenation is too slow.

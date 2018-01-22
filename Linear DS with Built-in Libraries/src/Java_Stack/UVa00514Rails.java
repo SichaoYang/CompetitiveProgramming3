@@ -8,8 +8,10 @@
 package Java_Stack;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Stack;
@@ -18,14 +20,19 @@ import java.util.Stack;
  * Simulation with stacks.
  */
 public class UVa00514Rails {
+    private static class io {
+        static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        public static int nextLineInt() throws IOException { return Integer.parseInt(reader.readLine()); }
+        public static void close() throws IOException { reader.close(); writer.close(); }
+    }
+    
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter writer = new PrintWriter(System.out);
         int n;
-        while ((n = Integer.parseInt(reader.readLine())) != 0) {
+        while ((n = io.nextLineInt()) != 0) {
             String input;
             Stack<Integer> stack = new Stack<>();
-            while (!(input = reader.readLine()).equals("0")) {
+            while (!(input = io.reader.readLine()).equals("0")) {
                 stack.clear();
                 int[] reorganization = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
                 int i = 0;
@@ -36,12 +43,11 @@ public class UVa00514Rails {
                         i++;
                     }
                 }
-                if (i == n) writer.println("Yes");
-                else writer.println("No");
+                if (i == n) io.writer.println("Yes");
+                else io.writer.println("No");
             }
-            writer.println();
+            io.writer.println();
         }
-        reader.close();
-        writer.close();
+        io.close();
     }
 }

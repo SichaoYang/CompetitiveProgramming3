@@ -8,28 +8,41 @@
 package Java_Queue_and_Deque;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.LinkedList;
+import java.util.StringTokenizer;
 
 /**
  * Simulation with queues.
  */
 public class UVa11034FerryLoadingIV {
+    private static class io {
+        static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        static StringTokenizer tokenizer;
+        public static boolean nextLine() throws IOException {
+            String input = reader.readLine();
+            if (input == null) return false;
+            tokenizer = new StringTokenizer(input);
+            return true;
+        }
+        public static int nextInt() { return Integer.parseInt(tokenizer.nextToken()); }
+        public static int nextLineInt() throws IOException { return Integer.parseInt(reader.readLine()); }
+        public static void close() throws IOException { reader.close(); writer.close(); }
+    }
+    
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 1000);
-        PrintWriter writer = new PrintWriter(System.out);
-        
-        int c = Integer.parseInt(reader.readLine());
-        while (c-- > 0) {
-            String[] lm = reader.readLine().split(" ");
-            int T = 0, l = Integer.parseInt(lm[0]) * 100, m = Integer.parseInt(lm[1]);
+        int c = io.nextLineInt();
+        while (c-- > 0 && io.nextLine()) {
+            int T = 0, l = io.nextInt() * 100, m = io.nextInt();
             LinkedList<Integer> left = new LinkedList<>(), right = new LinkedList<>();
-            while (m-- > 0) {
-                String[] input = reader.readLine().split(" ");
-                if (input[1].equals("left")) left.add(Integer.parseInt(input[0]));
-                else right.add(Integer.parseInt(input[0]));
+            while (m-- > 0 && io.nextLine()) {
+                int car = io.nextInt();
+                (io.tokenizer.nextToken().equals("left") ? left : right).add(car);
             }
             boolean onLeft = true;
             while (!left.isEmpty() || !right.isEmpty()) {
@@ -38,10 +51,8 @@ public class UVa11034FerryLoadingIV {
                 T++;
                 onLeft = !onLeft;
             }
-            writer.println(T);
+            io.writer.println(T);
         }
-        
-        reader.close();
-        writer.close();
+        io.close();
     }
 }
