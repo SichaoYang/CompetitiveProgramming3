@@ -15,8 +15,10 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
+/**
+ * Range sum query with two Fenwick tree.
+ */
 public class UVa12532IntervalProduct {
-    @SuppressWarnings("unused")
     private static class io {
         static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         static PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
@@ -28,8 +30,6 @@ public class UVa12532IntervalProduct {
             return true;
         }
         public static int nextInt() { return Integer.parseInt(tokenizer.nextToken()); }
-        public static long nextLong() { return Long.parseLong(tokenizer.nextToken()); }
-        public static int nextLineInt() throws IOException { return Integer.parseInt(reader.readLine()); }
         public static void close() throws IOException { reader.close(); writer.close(); }
     }
     
